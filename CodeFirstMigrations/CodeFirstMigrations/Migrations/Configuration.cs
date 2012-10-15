@@ -14,6 +14,9 @@ namespace CodeFirstMigrations.Migrations
 
 		protected override void Seed(CodeFirstMigrations.Context context)
 		{
+			var item1 = new Item() { ItemID = 1, ItemNumber = "Item1" };
+			var item2 = new Item() { ItemID = 2, ItemNumber = "Item2" };
+
 			var order1 = new Order()
 			{
 				OrderID = 1,
@@ -23,7 +26,7 @@ namespace CodeFirstMigrations.Migrations
 			{
 				OrderItemID = 1,
 				Order = order1,
-				ItemNumber = "Item1",
+				Item = item1,
 				Quantity = 1,
 				Price = 10M
 			});
@@ -37,7 +40,7 @@ namespace CodeFirstMigrations.Migrations
 			{
 				OrderItemID = 2,
 				Order = order2,
-				ItemNumber = "Item1",
+				Item = item1,
 				Quantity = 2,
 				Price = 10M
 			});
@@ -45,7 +48,7 @@ namespace CodeFirstMigrations.Migrations
 			{
 				OrderItemID = 3,
 				Order = order2,
-				ItemNumber = "Item2",
+				Item = item2,
 				Quantity = 1,
 				Price = 20.5M
 			});

@@ -14,7 +14,7 @@ namespace CodeFirstMigrations
 		{
 			var context = new Context();
 			var orders = context.Orders
-				.Include(o => o.Items)
+				.Include(o => o.Items.Select(oi => oi.Item))
 				.ToList();
 
 			foreach (var order in orders)
@@ -25,6 +25,11 @@ namespace CodeFirstMigrations
 		}
 	}
 
+	public class Item
+	{
+		public int ItemID { get; set; }
+		public string ItemNumber { get; set; }
+	}
 	public class Order
 	{
 		public int OrderID { get; set; }
@@ -45,7 +50,7 @@ namespace CodeFirstMigrations
 
 			foreach (var orderItem in Items)
 				sb.AppendFormat("OrderItemID: {0}, ItemNumber: {1}, Quantity: {2}, Price: {3:c2}\n",
-					orderItem.OrderItemID, orderItem.ItemNumber, orderItem.Quantity, orderItem.Price);
+					orderItem.OrderItemID, orderItem.Item.ItemNumber, orderItem.Quantity, orderItem.Price);
 
 			sb.AppendLine();
 
@@ -57,7 +62,8 @@ namespace CodeFirstMigrations
 		public int OrderItemID { get; set; }
 		public int OrderID { get; set; }
 		public Order Order { get; set; }
-		public string ItemNumber { get; set; }
+		public int ItemID { get; set; }
+		public Item Item { get; set; }
 		public int Quantity { get; set; }
 		public decimal Price { get; set; }
 	}

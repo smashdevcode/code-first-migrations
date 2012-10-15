@@ -50,6 +50,10 @@
     <Compile Include="Migrations\201210150347519_Initial.Designer.cs">
       <DependentUpon>201210150347519_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201210151333182_AddItemTable.cs" />
+    <Compile Include="Migrations\201210151333182_AddItemTable.Designer.cs">
+      <DependentUpon>201210151333182_AddItemTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,6 +65,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201210150347519_Initial.resx">
       <DependentUpon>201210150347519_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201210151333182_AddItemTable.resx">
+      <DependentUpon>201210151333182_AddItemTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
