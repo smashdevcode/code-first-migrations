@@ -12,6 +12,8 @@ namespace CodeFirstMigrations
 	{
 		public static void Main(string[] args)
 		{
+			Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, CodeFirstMigrations.Migrations.Configuration>());
+
 			var context = new Context();
 			var orders = context.Orders
 				.Include(o => o.Items.Select(oi => oi.Item))
